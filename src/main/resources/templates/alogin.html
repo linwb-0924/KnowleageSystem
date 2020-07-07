@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<!-- saved from url=(0047)http://zhishiku.little-star.me/?/account/login/ -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="renderer" content="webkit">
+    <title>登录</title>
+    <meta name="keywords" content="嵌入式培训,Android培训,JavaEE培训,HTML5培训,UI培训,物联网培训">
+    <meta name="description" content="东方锐智是福建省IT培训领军品牌，13年沉淀，打造IT教育全产业链人才服务平台。全省仅有的全部由一线大咖研发工程师授课的机构，专注于JavaEE培训，嵌入式培训，Android培训，HTML5培训，UI培训，物联网培训，学员口碑业内一马当先。">
+    <!--<base href="http://zhishiku.little-star.me/?/">--><base href="."><!--[if IE]></base><![endif]-->
+    <link href="http://zhishiku.little-star.me/static/css/default/img/favicon.ico?v=20200220" rel="shortcut icon" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" th:href="@{/login_files/bootstrap.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{login_files/icon.css}">
+    <link th:href="@{/login_files/common.css}" rel="stylesheet" type="text/css">
+    <link th:href="@{/login_files/link.css}" rel="stylesheet" type="text/css">
+    <link th:href="@{/login_files/style.css}" rel="stylesheet" type="text/css">
+    <link th:href="@{/login_files/login.css}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet"  th:href="@{/css/font.css}">
+    <link rel="stylesheet"  th:href="@{/css/xadmin.css}">
+    <script type="text/javascript" th:src="@{/plugins/jquery/jquery.min.js}" ></script>
+    <script  th:src="@{/lib/layui/layui.js}" charset="utf-8"></script>
+    <script type="text/javascript" th:src="@{/js/xadmin.js}"></script>
+    <link rel="stylesheet" th:href="@{/login_files/tomorrow.css}">
+    <script type="text/javascript">
+        var _CA155F44848AFC4A4643C56A01AB26D4="";
+        var G_POST_HASH=_CA155F44848AFC4A4643C56A01AB26D4;
+        var G_INDEX_SCRIPT = "?/";
+        var G_SITE_NAME = "东方锐智知识库";
+        var G_BASE_URL = "http://zhishiku.little-star.me/?";
+        var G_STATIC_URL = "http://zhishiku.little-star.me/static";
+        var G_UPLOAD_URL = "http://zhishiku.little-star.me/uploads";
+        var G_USER_ID = "";
+        var G_USER_NAME = "";
+        var G_UPLOAD_ENABLE = "N";
+        var G_UNREAD_NOTIFICATION = 0;
+        var G_NOTIFICATION_INTERVAL = 100000;
+        var G_CAN_CREATE_TOPIC = "";
+        var G_ADVANCED_EDITOR_ENABLE = "Y";
+        var FILE_TYPES = "jpg,jpeg,png,gif,zip,doc,docx,rar,pdf,psd,mp4";
+        var G_DRAFT_ENABLED = "N";
+        var G_PER_PAGE = "10";
+        var G_INDEX_PER_PAGE = "20";
+        var G_PRIVATEKEY = "pvjxzjmzvewfscft";
+        var G_IV = "qvibvaiwgouxwjeu";
+        var G_QUICK_PUBLISH_HUMAN_VALID = "0";
+    </script>
+    <script th:src="@{/login_files/jquery.2.js}" type="text/javascript"></script>
+    <script th:src="@{/login_files/jquery.form.js}" type="text/javascript"></script>
+    <script th:src="@{/login_files/plug-in_module.js}" type="text/javascript"></script>
+    <script th:src="@{/login_files/aws.js}" type="text/javascript"></script>
+    <script th:src="@{/login_files/aw_template.js}" type="text/javascript"></script>
+    <script th:src="@{/login_files/layer.js}" type="text/javascript"></script><link rel="stylesheet" th:href="@{/login_files/layer.css}" id="layuicss-layer">
+    <script th:src="@{/login_files/app.js}" type="text/javascript"></script>
+    <script th:src="@{/login_files/md5.js}" type="text/javascript"></script>
+    <script type="text/javascript" th:src="@{/login_files/compatibility.js}"></script>
+    <script type="text/javascript" th:src="@{/login_files/laydate.js}"></script><link rel="stylesheet" th:href="@{/login_files/laydate.css}" id="layuicss-laydate">
+    <script type="text/javascript" th:src="@{/login_files/gt2.js}"></script>
+    <script th:src="@{/login_files/crypto-js.js}"></script>
+    <script th:src="@{/login_files/highlight.pack.js}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            document.querySelectorAll('pre').forEach((block) => {
+                hljs.highlightBlock(block);
+            });
+        });
+    </script>
+    <style type="text/css">
+        .geetest_radar_tip_content{
+            position: initial !important;
+        }
+    </style>
+    <!--[if lte IE 8]>
+    <script type="text/javascript" src="http://zhishiku.little-star.me/static/js/respond.js"></script>
+    <![endif]-->
+    <style type="text/css">.fancybox-margin{margin-right:17px;}</style>
+</head>
+
+<body>
+<noscript unselectable="on" id="noscript">
+    <div class="aw-404 aw-404-wrap container">
+        <img src="http://zhishiku.little-star.me/static/common/no-js.jpg">
+        <p>你的浏览器禁用了JavaScript, 请开启后刷新浏览器获得更好的体验!</p>
+    </div>
+</noscript>
+<style type="text/css">
+    .oldPwdTip {
+        position: absolute;
+        color: rgba(153, 153, 153, 1);
+        margin-top: 3px;
+        margin-left: 0px;
+        text-align: left;
+        padding: 0 15px;
+        height: 40px;
+        line-height: 38px;
+        color: #777777;
+    }
+</style>
+
+<div id="wrapper">
+    <div class="aw-login-box">
+        <div class="mod-body clearfix">
+            <div class="content pull-left">
+                <h1 class="logo"><a href="http://zhishiku.little-star.me/?/"></a></h1>
+                <h2>东方锐智知识库</h2>
+                <form class="layui-form" id="login_form" method="post" onsubmit="return false">
+                    <ul>
+                        <li>
+                            <input type="text" id="aw-login-user-name" class="layui-input" placeholder="用户名" name="uname">
+                        </li>
+                        <li>
+                            <input type="text" class="layui-input" placeholder="密码" name="upass">
+                        </li>
+                        <li class="alert alert-danger collapse error_message">
+                            <i class="icon icon-delete"></i> <em></em>
+                        </li>
+                        <li class="last">
+                            <a href="javascript:;" lay-submit lay-filter="login" id="login_submit" class="pull-right btn btn-large btn-primary">登录</a>
+                            <label>
+                                <input type="checkbox" value="1" name="net_auto_login">
+                                记住我
+                            </label>
+                            <a href="">&nbsp;&nbsp;忘记密码</a>
+                        </li>
+                    </ul>
+                </form>
+            </div>
+
+            <div class="side-bar pull-left"></div>
+
+        </div>
+        <div class="mod-footer">
+            <span>还没有账号?</span>&nbsp;&nbsp;
+            <a href="/user/toRegister">立即注册</a>&nbsp;&nbsp;•&nbsp;&nbsp;
+            <a href="/index">游客访问</a>&nbsp;&nbsp;•&nbsp;&nbsp;
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function  () {
+        layui.use('form', function(){
+            var form = layui.form;
+            //监听提交
+            form.on('submit(login)', function(data){
+                // layer.msg(JSON.stringify(data.field))
+                $.ajax({
+                    url:"/user/do",
+                    data:data.field,
+                    dataType:"json",
+                    success:function (data) {
+                        console.log(data);
+                        if (data.code == 1) {
+                            layer.msg(data.msg, function() {
+                                location.href='/index'
+                            });
+                        }
+                        else {
+                            layer.msg(data.msg);
+                        }
+                    }
+                });
+                return false;
+            });
+        });
+    })
+</script>
+
+<div class="aw-footer-wrap">
+    <div class="aw-footer">
+        Copyright © 2020, All Rights Reserved
+        <span class="hidden-xs">Powered By 东方锐智</span>
+    </div>
+</div>
+<a class="aw-back-top hidden-xs" href="javascript:;" onclick="$.scrollTo(1, 600, {queue:true});">
+    <i class="icon icon-up"></i>
+</a>
+<!-- DO NOT REMOVE -->
+<div id="aw-ajax-box" class="aw-ajax-box"></div>
+<div style="display:none;" id="__crond"><img src="./login_files/saved_resource" width="1" height="1"></div>
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cdiv%20style%3D%27text-align%3Acenter%27%3E%3Cspan id='cnzz_stat_icon_1273638993'%3E%3C/span%3E%3Cscript src='"
+    + cnzz_protocol + "s22.cnzz.com/z_stat.php%3Fid%3D1273638993%26show%3Dpic' type='text/javascript'%3E%3C/script%3E%3C/div%3E"));
+</script>
+<div style="text-align:center">
+    <span id="cnzz_stat_icon_1273638993">
+        <a href="https://www.cnzz.com/stat/website.php?web_id=1273638993" target="_blank" title="站长统计">
+            <img border="0" hspace="0" vspace="0" src="./login_files/pic.gif">
+        </a>
+    </span>
+    <script src="./login_files/z_stat.php" type="text/javascript">
+    </script>
+    <script src="./login_files/core.php" charset="utf-8" type="text/javascript">
+    </script>
+</div>
+
+</body>
+</html>

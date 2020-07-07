@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width",initial-scale="1.0">
+    <title>分类新增</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+    <link rel="stylesheet" href="css/me.css">
+
+
+</head>
+<body>
+
+    <div class="ui attached pointing menu">
+        <div class="ui container">
+            <div class="right menu">
+                <a href="#" class="teal active item">新增</a>
+                <a href="#" th:href="@{/admin/type}" class=" item">列表</a>
+            </div>
+        </div>
+    </div>
+    <!-- 中间内容-->
+    <div class="m-padded-tb-large m-container">
+        <div class="ui container">
+            <form action="#" method="post"     th:object="${type}" th:action="*{id}==null ? @{/admin/type} : @{/admin/type/{id}(id=*{id})}" class="ui form">
+                <input type="hidden" name="id" th:value="*{id}">
+                <div class="required field">
+                    <div class="ui left labeled input">
+                        <label class="ui teal basic label">名称</label>
+                        <input type="text" name="name" th:value="*{name}" placeholder="分类名称" >
+                    </div>
+
+                </div>
+
+                <div class="ui error message"></div>
+
+
+                <div class="ui right aligned container">
+                    <button type="button" class="ui button" onclick="window.history.go(-1)">返回</button>
+                    <button  class="ui  teal submit button">提交</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+    <script>
+        $('.ui.dropdown').dropdown({
+            on : 'hover'
+        });
+        $('.ui.form').form({
+            fields : {
+                title : {
+                    identifier : 'name',
+                    rules : [{
+                        type : 'empty',
+                        prompt : '请输入分类名称'
+                    }]
+                }
+            }
+        });
+    </script>
+</body>
+</html>

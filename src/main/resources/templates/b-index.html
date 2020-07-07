@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+<meta http-equiv="Expires" content="0">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Pragma" content="no-cache">
+<meta name="renderer" content="webkit">
+<title>知识库</title>
+<meta name="keywords" content="嵌入式培训,Android培训,JavaEE培训,HTML5培训,UI培训,物联网培训">
+<meta name="description"
+	  content="东方锐智是福建省IT培训领军品牌，13年沉淀，打造IT教育全产业链人才服务平台。全省仅有的全部由一线大咖研发工程师授课的机构，专注于JavaEE培训，嵌入式培训，Android培训，HTML5培训，UI培训，物联网培训，学员口碑业内一马当先。">
+<!--<base href="http://zhishiku.little-star.me/?/">-->
+<base href=".">
+<!--[if IE]></base><![endif]-->
+<link href="http://zhishiku.little-star.me/static/css/default/img/favicon.ico?v=20200220" rel="shortcut icon"
+	  type="image/x-icon">
+<link rel="stylesheet" th:href="@{/pIndex_files/bootstrap.css}">
+<link rel="stylesheet" th:href="@{/pIndex_files/icon.css}">
+<link th:href="@{/pIndex_files/common.css}" rel="stylesheet" type="text/css">
+<link th:href="@{/pIndex_files/link.css}" rel="stylesheet" type="text/css">
+<link th:href="@{/pIndex_files/style.css}" rel="stylesheet" type="text/css">
+<link rel="stylesheet" th:href="@{/pIndex_files/tomorrow.css}">
+<script type="text/javascript">
+	var _40FDD728E74FCBD43E5AFB199FE1D91B="";
+	var G_POST_HASH=_40FDD728E74FCBD43E5AFB199FE1D91B;
+	var G_INDEX_SCRIPT = "?/";
+	var G_SITE_NAME = "知识库";
+	var G_USER_ID = "";
+	var G_USER_NAME = "";
+	var G_UPLOAD_ENABLE = "N";
+	var G_UNREAD_NOTIFICATION = 0;
+	var G_NOTIFICATION_INTERVAL = 100000;
+	var G_CAN_CREATE_TOPIC = "";
+	var G_ADVANCED_EDITOR_ENABLE = "Y";
+	var FILE_TYPES = "jpg,jpeg,png,gif,zip,doc,docx,rar,pdf,psd,mp4";
+	var G_DRAFT_ENABLED = "N";
+	var G_PER_PAGE = "10";
+	var G_INDEX_PER_PAGE = "20";
+	var G_PRIVATEKEY = "pvjxzjmzvewfscft";
+	var G_IV = "qvibvaiwgouxwjeu";
+	var G_QUICK_PUBLISH_HUMAN_VALID = "0";
+</script>
+<script th:src="@{./pIndex_files/jquery.2.js.下载}" type="text/javascript"></script>
+<script th:src="@{/pIndex_files/jquery.form.js.下载}" type="text/javascript"></script>
+<script th:src="@{/pIndex_files/plug-in_module.js.下载}" type="text/javascript"></script>
+<script th:src="@{/pIndex_files/aws.js.下载}" type="text/javascript"></script>
+<script th:src="@{/pIndex_files/aw_template.js.下载}" type="text/javascript"></script>
+<script th:src="@{/pIndex_files/layer.js.下载}" type="text/javascript"></script>
+<link rel="stylesheet" th:href="@{/pIndex_files/layer.css}" id="layuicss-layer">
+<script th:src="@{/pIndex_files/app.js.下载}" type="text/javascript"></script>
+<script type="text/javascript" th:src="@{/pIndex_files/compatibility.js.下载}"></script>
+<script type="text/javascript" th:src="@{/pIndex_files/laydate.js.下载}"></script>
+<link rel="stylesheet" th:href="@{/pIndex_files/laydate.css}" id="layuicss-laydate">
+<script type="text/javascript" th:src="@{/pIndex_files/gt2.js.下载}"></script>
+<script th:src="@{/pIndex_files/crypto-js.js.下载}"></script>
+<script th:src="@{/pIndex_files/highlight.pack.js.下载}"></script>
+<script>
+	document.addEventListener('DOMContentLoaded', (event) => {
+		document.querySelectorAll('pre').forEach((block) => {
+			hljs.highlightBlock(block);
+		});
+	});
+</script>
+
+</head>
+<body>
+<div class="aw-top-menu-wrap">
+	<div class="container">
+		<!-- logo -->
+		<div class="aw-logo hidden-xs">
+			<a href="http://zhishiku.little-star.me/"></a>
+		</div>
+		<!-- end logo -->
+		<!-- 搜索框 -->
+
+		<!-- end 搜索框 -->
+		<!-- 导航 -->
+		<
+		<!-- end 导航 -->
+		<!-- 用户栏 -->
+		<div class="aw-user-nav">
+			<!-- 登陆&注册栏 -->
+			<a class="login btn btn-normal btn-primary" href="">登录</a>
+			<a class="register btn btn-normal btn-success"
+			   href="">注册</a>
+			<!-- end 登陆&注册栏 -->
+		</div>
+		<!-- end 用户栏 -->
+		<!-- 发起 -->
+		<!-- end 发起 -->
+	</div>
+</div>
+
+<script>
+	$(function () {
+		var $changeSkin = $("#changeSkin"), $skinList = $("#skinList");
+		$changeSkin.mouseenter(function () {
+			$skinList.stop(true, true).show();
+		});
+		$changeSkin.mouseleave(function (e) {
+			$skinList.hide();
+		});
+		$skinList.mouseover(function () {
+			$(this).stop(true, true).show();
+		});
+		$skinList.mouseleave(function (e) {
+			$(this).hide();
+		})
+	})
+</script>
+<style type="text/css">
+	.rewards {
+		color: #fff;
+		border-radius: 2px;
+		padding: 0 10px;
+		margin-left: 10px;
+	}
+
+	.reward-over {
+		background: #b8b1b1
+	}
+
+	.reward-aaaa {
+		background: #dea32b
+	}
+
+	.reward-ings {
+		background: #2b98de
+	}
+</style>
+<div class="aw-container-wrap">
+	<div class="container">
+		<div class="container category">
+			<div class="row">
+				<div class="col-sm-12">
+					<ul class="list">
+						<li class="active"><a href="http://localhost:8083/pIndex/toIndex">全部</a></li>
+
+						<li>
+								<a href="http://localhost:8083/pIndex/JavaDP">Java开发</a>
+						</li>
+						<li>
+							<a href="">Python开发</a>
+						</li>
+						<li>
+							<a href="">spring学习</a>
+						</li>
+						<li>
+							<a href="">数据库学习</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="aw-content-wrap clearfix">
+				<div class="col-sm-12 col-md-9 aw-main-content">
+					<!-- 新消息通知 -->
+
+					<!-- end 新消息通知 -->
+					<!-- tab切换 -->
+
+
+					<!-- end tab切换 -->
+
+					<div class="aw-mod aw-explore-list">
+						<div class="mod-body">
+							<div class="aw-common-list">
+								<div th:each="t:${blogs}"  class="aw-item article" data-topic-id="" >
+									<a class="aw-user-name hidden-xs" data-id="1"
+									   href="http://localhost:8083/pIndex/toIndex" rel="nofollow"><img
+											src="/pIndex_files/Javapng.png" alt=""></a>
+									<div class="aw-question-content" >`
+										<h4>
+
+											<a href="http://localhost:8083/pIndex/blog" th:text="${t.title}" ></a>
+
+										</h4>
+
+										<p>
+											<a class="aw-question-tags"
+											   href="" th:text="${t.types}"></a>
+											• <a href="http://localhost:8083/pIndex/blog" class="aw-user-name" th:text="${t.name}"></a>
+											<span class="text-color-999">发表了文章 • 浏览次数:<span th:text="${t.views}"></span> • <span th:text="${t.updatetime}"></span></span>
+											<span class="text-color-999 related-topic collapse"> • 来自相关话题</span>
+										</p>
+
+										<!-- 文章内容调用 -->
+										<div class="markitup-box" onclick="window.location.href='http://localhost:8083/pIndex/blog'"
+											 style="cursor: pointer;"><img
+												src="/pIndex_files/Javapng.png"
+												class="pull-left inline-img">
+											<div class="img pull-right"></div>
+											<span th:text="${t.content}"></span>
+
+											...<a class="more"
+												  href="">查看全部</a>
+										</div>
+
+										<!-- end 文章内容调用 -->
+									</div>
+								</div>
+
+							</div>
+						</div>
+						<div class="mod-footer">
+						</div>
+					</div>
+				</div>
+
+				<!-- 侧边栏 -->
+				<div class="col-sm-12 col-md-3 aw-side-bar hidden-xs hidden-sm">
+					<div class="aw-mod">
+						<div class="mod-head">
+							<h3>专题</h3>
+						</div>
+						<div class="mod-body">
+							<ul>
+								<li><a href="">如何高效的工作学习</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="aw-mod aw-text-align-justify">
+						<div class="mod-head">
+							<a href="" class="pull-right">更多 &gt;</a>
+							<h3>热门话题</h3>
+						</div>
+						<div class="mod-body">
+						</div>
+					</div>
+					<div class="aw-mod aw-text-align-justify">
+						<div class="mod-head">
+							<a href="" class="pull-right">更多 &gt;</a>
+							<h3>热门用户</h3>
+						</div>
+						<div class="mod-body">
+						</div>
+					</div>
+				</div>
+				<!-- end 侧边栏 -->
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="aw-footer-wrap">
+	<div class="aw-footer">
+		Copyright © 2020, All Rights Reserved
+		<span class="hidden-xs">Powered By 东方锐智</span>
+
+	</div>
+</div>
+
+<a class="aw-back-top hidden-xs" href="javascript:;" onclick="$.scrollTo(1, 600, {queue:true});"><i
+		class="icon icon-up"></i></a>
+
+
+<!-- DO NOT REMOVE -->
+<div id="aw-ajax-box" class="aw-ajax-box"></div>
+
+<div style="display:none;" id="__crond"><img src="./pIndex_files/saved_resource" width="1" height="1"></div>
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cdiv%20style%3D%27text-align%3Acenter%27%3E%3Cspan id='cnzz_stat_icon_1273638993'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s22.cnzz.com/z_stat.php%3Fid%3D1273638993%26show%3Dpic' type='text/javascript'%3E%3C/script%3E%3C/div%3E"));</script>
+<div style="text-align:center"><span id="cnzz_stat_icon_1273638993"><a
+		href="https://www.cnzz.com/stat/website.php?web_id=1273638993" target="_blank" title="站长统计"><img border="0"
+																										 hspace="0"
+																										 vspace="0"
+																										 src="./pIndex_files/pic.gif"></a></span>
+	<script src="./pIndex_files/z_stat.php" type="text/javascript"></script>
+	<script src="./pIndex_files/core.php" charset="utf-8" type="text/javascript"></script>
+</div>
+
+<!-- Escape time: 0.077376842498779 --><!-- / DO NOT REMOVE -->
+
+
+</body></html>

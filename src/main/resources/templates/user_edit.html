@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>欢迎页面-DFRZ</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet"  th:href="@{/css/font.css}">
+    <link rel="stylesheet"  th:href="@{/css/xadmin.css}">
+    <script type="text/javascript" th:src="@{/plugins/jquery/jquery.min.js}" ></script>
+    <script  th:src="@{/lib/layui/layui.js}" charset="utf-8"></script>
+    <script type="text/javascript" th:src="@{/js/xadmin.js}"></script>
+    <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+    <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+<div class="x-body layui-anim layui-anim-up">
+    <form class="layui-form">
+        <input name="id" type="hidden" th:value="${user.id}">
+        <div class="layui-form-item">
+            <label for="L_uname" class="layui-form-label">
+                <span class="x-red">*</span>用户名
+            </label>
+            <div class="layui-input-inline">
+                <input type="text" id="L_uname" name="uname" required="" lay-verify="uname"
+                       autocomplete="off" class="layui-input" th:value="${user.uname}">
+            </div>
+            <div class="layui-form-mid layui-word-aux">
+                <span class="x-red">*</span>将会成为您唯一的登入名
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label for="test1" class="layui-form-label">
+                上传头像
+            </label>
+            <div class="layui-input-inline">
+                <button type="button" class="layui-btn" id="test1">
+                    <i class="layui-icon">&#xe67c;</i>上传图片
+                </button>
+                <img id="img_headpic" th:src="@{${url}}" width="100px" height="100px">
+                <input type="hidden" id="headpic" name="headpic" th:value="${user.headpic}"/>
+            </div>
+        </div>
+        <!--密码-->
+        <div class="layui-form-item">
+            <label for="L_upass" class="layui-form-label">
+                <span class="x-red">*</span>密码
+            </label>
+            <div class="layui-input-inline">
+                <input type="text" id="L_upass" name="upass" required="" lay-verify="upass"
+                       autocomplete="off" class="layui-input" th:value="${user.upass}">
+            </div>
+            <div class="layui-form-mid layui-word-aux">
+                3到16个字符
+            </div>
+        </div>
+        <!--权限等级-->
+        <div class="layui-form-item">
+            <label for="L_ulevel" class="layui-form-label">权限设置</label>
+            <div class="layui-input-inline">
+                <input type="text" id="L_ulevel" name="ulevel" required="" lay-verify="ulevel"
+                       autocomplete="off" class="layui-input" th:value="${user.ulevel}">
+            </div>
+        </div>
+        <!--真实姓名-->
+        <div class="layui-form-item">
+            <label for="L_realname" class="layui-form-label">真实姓名</label>
+            <div class="layui-input-inline">
+                <input type="text" id="L_realname" name="realname" required="" lay-verify="realname"
+                       autocomplete="off" class="layui-input" th:value="${user.realname}">
+            </div>
+        </div>
+        <!--性别-->
+        <div class="layui-form-item">
+            <label for="L_sex" class="layui-form-label">性别</label>
+            <div class="layui-input-inline">
+                <input type="text" id="L_sex" name="sex" required="" lay-verify="sex"
+                       autocomplete="off" class="layui-input" th:value="${user.sex}">
+            </div>
+        </div>
+        <!--出生（年-月-日）-->
+        <div class="layui-form-item">
+            <label for="L_born" class="layui-form-label">出生</label>
+            <div class="layui-input-inline">
+                <input type="text" id="L_born" name="born" required="" lay-verify="born"
+                       autocomplete="off" class="layui-input" th:value="${user.born}">
+            </div>
+        </div>
+        <!--邮箱-->
+        <div class="layui-form-item">
+            <label for="L_email" class="layui-form-label">邮箱</label>
+            <div class="layui-input-inline">
+                <input type="text" id="L_email" name="email" required="" lay-verify="email"
+                       autocomplete="off" class="layui-input" th:value="${user.email}">
+            </div>
+        </div>
+        <!--居住地-->
+        <div class="layui-form-item">
+            <label for="L_address" class="layui-form-label">居住地</label>
+            <div class="layui-input-inline">
+                <input type="text" id="L_address" name="address" required="" lay-verify="address"
+                       autocomplete="off" class="layui-input" th:value="${user.address}">
+            </div>
+        </div>
+        <!--个性网址-->
+        <div class="layui-form-item">
+            <label for="L_website" class="layui-form-label">个性网址</label>
+            <div class="layui-input-inline">
+                <input type="text" id="L_website" name="website" required="" lay-verify="website"
+                       autocomplete="off" class="layui-input" th:value="${user.website}">
+            </div>
+        </div>
+        <!--职业-->
+        <div class="layui-form-item">
+            <label for="L_profession" class="layui-form-label">个性网址</label>
+            <div class="layui-input-inline">
+                <input type="text" id="L_profession" name="profession" required="" lay-verify="profession"
+                       autocomplete="off" class="layui-input" th:value="${user.profession}">
+            </div>
+        </div>
+        <!--个人介绍-->
+        <div class="layui-form-item">
+            <label for="L_udescribe" class="layui-form-label">个性网址</label>
+            <div class="layui-input-inline">
+                <input type="text" id="L_udescribe" name="udescribe" required="" lay-verify="udescribe"
+                       autocomplete="off" class="layui-input" th:value="${user.udescribe}">
+            </div>
+        </div>
+
+        <!--===========================================================================================-->
+
+
+
+        <div class="layui-form-item">
+
+            <button  class="layui-btn" lay-filter="edit" lay-submit="">
+                修改
+            </button>
+            <button type="button" class="layui-btn layui-btn-danger">重置</button>
+        </div>
+    </form>
+</div>
+
+
+<script>
+    layui.use(['form','layer'], function(){
+        $ = layui.jquery;
+        var form = layui.form
+            ,layer = layui.layer;
+
+        //自定义验证规则
+        form.verify({
+            uname: function(value){
+                if(value.length < 3){
+                    return '用户名至少得3个字符啊';
+                }
+            }
+
+        });
+
+        //监听提交
+        form.on('submit(edit)', function(data){
+            console.log(JSON.stringify(data.field));
+            //Ajax异步，提交数据
+
+            $.ajax({
+                url:"/user/doEdit",
+                dataType:"json",
+                data:data.field,
+                success:function (data) {
+                    console.log("data.data= 【"+JSON.stringify(data.field));
+                    if (data.code == 0) {
+                        layer.alert("修改成功", {icon: 6}, function () {
+                            parent.location.reload();   //修改后刷新父界面
+                            // 获得frame索引
+                            var index = parent.layer.getFrameIndex(window.name);
+                            //关闭当前frame
+                            parent.layer.close(index);
+                        });
+                    }
+                    else {
+                        layer.alert("修改失败")
+                    }
+                }
+            });
+
+
+            return false;
+        });
+
+
+    });
+</script>
+
+<script>
+    layui.use('upload', function(){
+        var upload = layui.upload;
+        //执行实例
+        var uploadInst = upload.render({
+            elem: '#test1' //绑定元素
+            ,url: '/user/uploadHeadPic' //上传接口
+            ,done: function(res){
+                console.log("res.data:    "+res.data);
+                //上传完毕回调
+                layer.msg("上传成功");
+                var headpic=res.data.src;
+                $("#img_headpic").attr("src","/user/"+headpic);
+                console.log("img_headpic:  "+img_headpic);
+                $("#headpic").val(headpic);
+                console.log("headpic:  "+headpic);
+            }
+            ,error: function(){
+                //请求异常回调
+                layer.msg("上传失败");
+            }
+        });
+    });
+</script>
+</body>
+</html>

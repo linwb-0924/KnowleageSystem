@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>欢迎页面-DFRZ</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet"  th:href="@{/css/font.css}">
+    <link rel="stylesheet"  th:href="@{/css/xadmin.css}">
+    <script type="text/javascript" th:src="@{/plugins/jquery/jquery.min.js}" ></script>
+    <script  th:src="@{/lib/layui/layui.js}" charset="utf-8"></script>
+    <script type="text/javascript" th:src="@{/js/xadmin.js}"></script>
+    <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+    <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="layui-anim layui-anim-up">
+<div class="x-nav">
+      <span class="layui-breadcrumb">
+        <a href="">首页</a>
+        <a href="">演示</a>
+        <a>
+          <cite>导航元素</cite></a>
+      </span>
+    <a class="layui-btn layui-btn-small" style="line-height:1.6em;margin-top:3px;float:right" href="javascript:location.replace(location.href);" title="刷新">
+        <i class="layui-icon" style="line-height:30px">ဂ</i></a>
+</div>
+<div class="x-body">
+    <div class="layui-row">
+        <form class="layui-form layui-col-md12 x-so">
+            <input class="layui-input" placeholder="开始日" name="start" id="start">
+            <input class="layui-input" placeholder="截止日" name="end" id="end">
+            <input type="text" name="username"  placeholder="请输入用户名" autocomplete="off" class="layui-input">
+            <button class="layui-btn"  lay-submit="" lay-filter="sreach"><i class="layui-icon">&#xe615;</i></button>
+        </form>
+    </div>
+    <xblock>
+        <button class="layui-btn layui-btn-danger" onclick="delAll()"><i class="layui-icon"></i>批量删除</button>
+        <button class="layui-btn" onclick="x_admin_show('添加用户','/user/toAdd',600,700)"><i class="layui-icon"></i>添加</button>
+        <span class="x-right" style="line-height:40px">共有数据：88 条</span>
+    </xblock>
+
+    <table id="demo" class="layui-table" lay-filter="test"></table>
+
+
+    <div class="page">
+        <div>
+            <a class="prev" href="">&lt;&lt;</a>
+            <a class="num" href="">1</a>
+            <span class="current">2</span>
+            <a class="num" href="">3</a>
+            <a class="num" href="">489</a>
+            <a class="next" href="">&gt;&gt;</a>
+        </div>
+    </div>
+
+</div>
+
+
+<script type="text/html" id="barDemo">
+    <a class="layui-btn layui-btn-xs" lay-event="detail">查看</a>
+    <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+</script>
+
+<script>
+    layui.use('table', function(){
+        var table = layui.table;
+
+        //第一个实例
+        table.render({
+            elem: '#demo'
+            ,height: 312
+            ,url: '/user/getUsers' //数据接口
+            ,page: true //开启分页
+            ,toolbar: '#barDemo'
+            ,cols: [
+                [ //表头
+                    {field: 'id', title: 'ID', width:80, sort: true, fixed: 'left'}
+                    ,{field: 'uname', title: '用户名', width:150}
+                    ,{field: 'upass', title: '密码', width:100}
+                    // ,{field: 'ulevel', title: '权限等级', width:100}
+                    // ,{field: 'realname', title: '真实姓名', width:100}
+                    // ,{field: 'headpic', title: '头像', width:100}
+                    ,{fixed: 'right', width: 250, align: 'center', toolbar: '#barDemo'}
+                ]
+            ]
+        });
+        //监听事件
+        table.on('tool(test)', function(obj){
+            //var checkStatus = table.checkStatus(obj.config.id);
+            var data = obj.data; //获得当前行数据
+            switch(obj.event){
+                case 'detail':
+                    // layer.msg('查看:[id=' + data.id + ', uname=' + data.uname + ', 真实姓名=' + data.realname +']');
+                    x_admin_show('用户信息', '/user/toScan/'+data.id, 600, 700)
+                    break;
+                case 'edit':
+                    x_admin_show('编辑用户', '/user/toEdit/'+data.id, 600, 700)
+                    break;
+                case 'del':
+                    layer.confirm("确认删除吗？", function() {
+                        deleteUser(data.id);
+                        //直接修改前端DOM元素
+                        obj.del();
+                    })
+                    break;
+            };
+        });
+    });
+
+    function deleteUser(id) {
+        $.ajax({
+            url:"/user/delete/"+id,
+            dataType:"json",
+            type:"post",
+            success:function (data) {
+                layer.msg(data.msg);
+            }
+        });
+    }
+</script>
+
+
+</body>
+</html>

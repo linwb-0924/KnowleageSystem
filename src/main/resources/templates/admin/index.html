@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width",initial-scale="1.0">
+    <title>博客管理</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+    <link rel="stylesheet" href="css/me.css">
+</head>
+<body>
+
+    <!-- 中间内容-->
+    <div class="m-padded-tb-large m-container">
+        <div class="ui container">
+            <div class="ui success  large message">
+                <h3>Hi</h3>
+                管理员:<p th:text="${session.admin.aname}">xxx，欢迎登录!</p>
+            </div>
+            <img class="ui rounded bordered fluid image" alt="" src="https://s1.ax1x.com/2020/05/28/teDAGF.jpg"  th:src="@{/adminlook}" >
+        </div>
+    </div>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+<script>
+    $('.ui.dropdown').dropdown({
+        on : 'hover'
+    });
+</script>
+</body>
+</html>

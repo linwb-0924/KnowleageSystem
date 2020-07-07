@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width",initial-scale="1.0">
+    <title>首页</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+    <link rel="stylesheet" href="css/me.css">
+</head>
+<body>
+<!--
+    图片链接:https://s1.ax1x.com/2020/07/06/UC0hrT.jpg
+            https://s1.ax1x.com/2020/07/06/UC0oa4.jpg
+            https://s1.ax1x.com/2020/07/06/UC0TIJ.png
+
+-->
+    <!-- 导航-->
+    <nav class="ui inverted attached segment m-padded-tb-mini">
+        <div class="ui container">
+            <div class="ui inverted secondary stackable menu">
+                <h2 class="ui teal header m-margin-tb-tiny">知识库</h2>
+                <a href="#" th:href="@{/index}" class="active item m-mobile"><i class="home icon"></i>首页</a>
+                <a href="#" th:href="@{/type}" class="item m-mobile"><i class="idea icon"></i>分类</a>
+
+                <div class="right menu">
+                    <div class="ui dropdown item">
+                        <div class="text">
+                            <a text="登录" th:if="${#strings.isEmpty(session.user)}" th:href="@{/}">登录</a>
+<!--                            <img src="https://s1.ax1x.com/2020/05/28/teDAGF.jpg" th:src="@{${session.user}}"  alt="" class="ui avatar image">-->
+                            <span th:text="${session.user.uname}" th:if="${not #strings.isEmpty(session.user)}">林伟彬</span>
+                        </div>
+                        <i class="dropdown icon"></i>
+                        <div class="menu">
+                            <a href="/loginoutt" class="item" th:if="${not #strings.isEmpty(session.user)}">注销</a>
+                        </div>
+                    </div>
+                </div>
+<!--                <div class="right item">-->
+<!--                    <form  name="search" action="#" th:action="@{/search}" method="post" target="_blank">-->
+<!--                        <div class="ui icon  input m-mobile">-->
+<!--                            <input type="text" name="query" placeholder="Search....">-->
+<!--                            <i onclick="document.forms['search'].submit()"  class="search link icon"></i>-->
+<!--                        </div>-->
+<!--                    </form>-->
+
+<!--                 &lt;!&ndash;-->
+<!--                <a href="#" target="ui black icon button"><i class="sidebar icon"></i></a>-->
+<!--                    &ndash;&gt;-->
+<!--            </div>-->
+        </div>
+        </div>
+    </nav>
+    <!-- 中间内容-->
+    <div class="m-padded-tb-large m-container-small">
+        <div class="ui container">
+       <div class="ui stackable grid">
+           <!--左-->
+           <div class="eleven wide column">
+               <div class="ui  top attached segment">
+                   <div class="ui middle aligned two column grid">
+                       <div class="column">
+                           <h3 class="ui teal header">文章</h3>
+                       </div>
+                       <div class="right aligned column">
+                           共<h3 class="ui orange header m-inline-block m-text-thin" th:text="${total}">xx</h3>篇
+                       </div>
+                   </div>
+               </div>
+                <!--content-->
+               <div class="ui attached  segment ">
+                   <div class="ui  padded  vertical segment m-padded-tb-large">
+                       <div class="ui  mobile reversed stackable grid" th:each="blog : ${blogs}">
+                           <div class="eleven wide column">
+                                <h3 class="ui header"><a href="#"  th:href="@{/blog/{id}(id=${blog.id})}" target="_blank"  class="m-black" th:text="${blog.title}">你真的理解什么是财富自由吗？</a></h3>
+                                <p class="m-text" >请点击查看.....</p>
+                                <div class="ui grid">
+                                   <div class="eleven wide column">
+                                        <div class="ui mini horizontal link list">
+                                            <div class="item">
+                                                <img src="https://s1.ax1x.com/2020/05/28/teDAGF.jpg" th:src="@{/adminlookkkk(name=${blog.name})}" alt="" class="ui avatar image">
+                                                <div class="content">
+                                                    <a href="#" class="header"  th:text="${blog.name}">林伟彬</a>
+                                                </div>
+                                            </div>
+                                            <div class="item">
+                                                <i class="calendar icon"></i><span th:text="${#dates.format(blog.updatetime,'yyyy-MM-dd')}">2017-10-01</span>
+                                            </div>
+                                            <div class="item">
+                                                <i class="eye icon"></i><span th:text="${blog.views}"></span>
+                                            </div>
+                                        </div>
+                                   </div>
+                                   <div class="right aligned five wide column">
+                                        <a href="#" target="_blank" class="ui teal basic label" th:text="${blog.types}">认知升级</a>
+                                   </div>
+                                </div>
+                           </div>
+                           <div class="five wide column">
+                                <a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank">
+                                    <img src="https://s1.ax1x.com/2020/05/28/tewMa8.jpg" th:src="${blog.firstpic}" alt="" class="ui rounded image">
+                                </a>
+                           </div>
+                       </div>
+                   </div>
+                       <div class="ui middle aligned two column grid">
+                       <div class="column">
+                           <a th:href="@{/index(pageindex=${pageindex}-1)}" th:if="${not #strings.isEmpty(flag1)}" class="ui teal basic button">上一页</a>
+                       </div>
+                       <div class="right aligned column">
+                           <a href="#"  th:href="@{/index(pageindex=${pageindex}+1)}"  th:if="${not #strings.isEmpty(flag2)}" class="ui teal basic button">下一页</a>
+                       </div>
+                   </div>
+               </div>
+           </div>
+
+           <!--右-->
+
+           <div class="five wide column">
+               <!--  分类         -->
+               <div class="ui segments">
+                   <div class="ui secondary segment">
+                       <div class="ui two column grid">
+                           <div class="column">
+                               <i class="idea icon"></i>分类
+                           </div>
+
+                       </div>
+                   </div>
+                   <div class="ui teal segment">
+                       <div class="ui fluid vertical menu" >
+                           <a href="#" class="item" th:each="type : ${types}">
+                               <span th:text="${type.name}">学习日志</span>
+                           </a>
+
+                       </div>
+
+                   </div>
+
+               </div>
+               <!--   最新推荐          -->
+               <div class="ui segments">
+                   <div class="ui secondary segment " >
+                       <i class="bookmark icon"></i>总览
+                   </div>
+                   <div class="ui segment" th:each="blog : ${blogs}">
+                       <a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank" class="m-black m-text-thin" th:text="${blog.title}">用户故事(User Story)</a>
+                   </div>
+               </div>
+
+       </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+    <script>
+        $('.ui.dropdown').dropdown({
+            on : 'hover'
+        });
+    </script>
+
+</body>
+</html>

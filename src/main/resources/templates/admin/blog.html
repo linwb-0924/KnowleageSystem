@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width",initial-scale="1.0">
+    <title>博客管理</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+    <link rel="stylesheet" href="css/me.css">
+</head>
+<body>
+    <div class="ui attached pointing menu">
+        <div class="ui container">
+            <div class="right menu">
+                <a href="#" th:href="@{/admininput}" class="item">发布</a>
+                <a href="#" th:href="@{/admin/blog}" class="teal active item">列表</a>
+            </div>
+        </div>
+    </div>
+    <!-- 中间内容-->
+    <div class="m-padded-tb-large m-container">
+        <div class="ui container">
+            <div class="ui  secondary segment form">
+                <input type="hidden" name="page">
+                <div class="inline fields">
+                    <div class="field">
+                        <input type="text" name="title" placeholder="标题">
+                    </div>
+                    <div class="field">
+                        <div class="ui labeled action input">
+
+                        <div class="ui type selection dropdown">
+                            <input type="hidden" name="types">
+                            <i class="dropdown icon"></i>
+                            <div class="default text">分类</div>
+                            <div class="menu">
+                                <div  th:each="type : ${types}" class="item" data-value="1" th:data-value="${type.name}" th:text="${type.name}">错误日志</div>
+<!--                                <div class="item" data-value="2">开发者手册</div>-->
+                            </div>
+                        </div>
+                            <button id="clear-btn" class="ui clear button">clear</button>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <button type="button" id="search-btn" class="ui mini teal basic button"><i class="search icon"></i>搜索</button>
+                    </div>
+                </div>
+            </div>
+            <div id="table-container">
+                <table th:fragment="blogList" class="ui  compact teal table">
+                    <thead>
+                    <tr>
+                        <th>访问量</th>
+                        <th>标题</th>
+                        <th>类型</th>
+                        <th>作者</th>
+                        <th>更新时间</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="blog : ${blogs}">
+                        <td th:text="${blog.views}">xxx</td>
+                        <td th:text="${blog.title}">刻意练习清单</td>
+                        <td th:text="${blog.types}">认知升级</td>
+                        <td th:text="${blog.name}">xxx</td>
+                        <td th:text="${blog.updatetime}">2017-10-02 09:45</td>
+                        <td>
+                            <a href="#"  th:href="@{/adminedit(id=${blog.id})}" class="ui mini teal basic button">编辑</a>
+                            <a href="#" th:href="@{/admin/blog/{id}/delete(id=${blog.id})}" class="ui mini red basic  button">删除</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                    <tfoot>
+                    <th colspan="7">
+                        <div class="ui mini pagination menu">
+                            <a th:href="@{/admin/blog(pageindex=${pageindex}-1)}"  th:if="${not #strings.isEmpty(flag2)}" class="item">上一页</a>
+                            <a th:href="@{/admin/blog(pageindex=${pageindex}+1)}" th:if="${not #strings.isEmpty(flag1)}" class="item">下一页</a>
+                        </div>
+                        <a href="#"  th:href="@{/admininput}" class="ui mini right floated teal basic button">新增</a>
+                    </th>
+                    </tfoot>
+                </table>
+
+
+                <div class="ui success  message" th:unless="${#strings.isEmpty(message)}">
+                    <i class="close icon"></i>
+                    <div class="header">提示</div>
+                    <p th:text="${message}">操作成功</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+<script>
+    $('.ui.dropdown').dropdown({
+        on : 'hover'
+    });
+
+
+    $('.message .close')
+        .on('click', function () {
+            $(this)
+                .closest('.message')
+                .transition('fade');
+        });
+
+
+    $("#search-btn").click(function () {
+        loaddata();
+    });
+
+    $('#clear-btn')
+        .on('click',function () {
+            $('.ui.type.dropdown')
+                .dropdown('clear');
+        });
+
+
+    function loaddata() {
+        $("#table-container").load(/*[[@{/admin/blog/search}]]*/"/admin/blog/search",{
+            title : $("[name='title']").val(),
+            types : $("[name='types']").val(),
+        });
+    }
+</script>
+</body>
+</html>
